@@ -1,7 +1,15 @@
+
+
+body{
+    cursor:url(keron.cur),auto;
+    
+}
+
 .container {
     width: 600px;
     margin: 0 auto;
     padding: 30px;
+   
 }
 .myphoto {
     width: 120px;
@@ -9,6 +17,22 @@
 }
 .photo {
     text-align: center;
+
+}
+.photo img{
+    transition-property: transform;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(.54,.12,.55,1.02);
+    animation-name: movein;
+    animation-duration: 1s;
+    
+
+}
+.photo img:hover{
+    transform: rotate(360deg);
+
+
+
 }
 .name {
     text-align: center;
@@ -21,6 +45,7 @@ h1 {
 .info {
     color: #3d3d3d;
     font-family: sans-serif;
+    font-weight: bold;
     font-size: 14px;
     line-height: 1.6;
     text-align: center;
@@ -28,21 +53,30 @@ h1 {
 .button {
     position: relative;
     display: block;
-    border: 1px solid #3d3d3d;
+    border: 1px solid #59804c;
     padding: 20px;
     text-align: center;
     margin: 30px 0;
     font-family: sans-serif;
     font-weight: bold;
     border-radius: 4px;
-    color: #3d3d3d;
+    color: #59804c;
     text-decoration: none;
     font-size: 18px;
     letter-spacing: 4px;
+    cursor:url(keronnn.cur), pointer; 
 }
+
+/* https://ithelp.ithome.com.tw/m/articles/10247486 */
+
+.button0:hover {
+    background-color: #59804c;
+
+}
+
 .icon {
     position: absolute;
-    top: 10px;
+    top: 5px;
     left: 20px;
     width: 60px;
 }
@@ -62,13 +96,139 @@ h1 {
     box-sizing: border-box;
     /* 把padding、border的尺寸含入高度、寬度內 */
 }
+
 .works {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2,1fr);
-    column-gap: 5px;
+    gap: 5px;
 }
 .work-item img {
     max-width: 100%;
-    height: auto;
+    height: auto; 
+    aspect-ratio: 1;
+    object-fit: cover;
+    transition-property: transform filter;
+    transition-duration: .5s;
+}
+
+.work-item:hover img{
+    transform: scale(1.2);
+    filter: blur(2px);
+    
+
+}
+
+.work-item {
+    line-height: 0;
+    overflow: hidden;
+    position: relative;
+    cursor:url(keronnn.cur), pointer; 
+    /*箱子關起來*/
+}
+
+.moji{
+    font-size: 24px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    /*把東西疊到別人身上*/
+    text-align: center;
+    width: 100%;
+    top:50%;
+    color: #ffffff;
+    text-shadow:3px 2px 3px #3d3d3d;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.work-item:hover .moji{
+    /*可指定變這張裡面的字而已*/
+
+    opacity: 1;
+
+}
+
+
+
+
+.button2{
+    transition: color .8s .2s;
+  }
+  
+  .button2:hover{
+    color: #fff;
+  }
+  
+  .button2::before{
+    content:'';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 95%;
+    width: 100%;
+    background-color: #59804c;
+    transition: 1s;
+    z-index: -1;
+  }
+  
+  .button2:hover:before{
+    top: 0;
+  }
+
+  @keyframes movein{
+    from{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+  }
+  .me img{
+
+    width: 200px;
+    animation-name: movein;
+    animation-duration: 1s;
+    display: block;
+    /* 變區塊 */
+    position: fixed;
+    right: 5%;
+    bottom: 50px;
+
+    transition: transform .5s;
+    
+    /*
+    animation-iteration-count: infinite;
+    無限播放
+    animation-direction: alternate;
+    動畫折返跑
+    animation-fill-mode: forwards backwards;
+    最後動畫停在最後一格or第一格
+
+    */
+  }
+
+  .me img:hover{
+    transform: translateY(-20px);
+
+  }
+
+  @keyframes test{
+    from{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100%{
+
+
+    }
 }
